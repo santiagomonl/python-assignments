@@ -8,6 +8,10 @@ Please feel free to comment and give feedback
 
 ## Assignments completed
 
-Day 1
-Day 2
-Day 3
+**Day 1**
+
+**Day 2**
+
+**Day 3**
+
+**Day 4**
