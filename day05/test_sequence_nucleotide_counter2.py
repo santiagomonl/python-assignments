@@ -38,10 +38,6 @@ def test_single_file():
     assert "A : 1 16.7" in output # all section should be the same as single file in this case
     assert "Total: 6" in output # total in all section
 
-    os.remove('sequence1.txt')
-
-
-
 
 def test_multiple_files():
     with open('sequence1.txt', 'w') as f:
