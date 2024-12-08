@@ -7,8 +7,8 @@ import sys
 print(sys.argv)
 
 def file_call():
-    if len(sys.argv) < 2:
-        exit(f"Usage: {sys.argv[0]} filename")
+    #if len(sys.argv) < 2:
+        #exit(f"Usage: {sys.argv[0]} filename")
     for file in sys.argv[1:]:
         print(file)
     print(sys.argv[1])
