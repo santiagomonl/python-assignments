@@ -32,7 +32,12 @@ The tool requires Python 3.7 or higher and the following packages:
 
 * re
 
-See requirements.txt for details.
+* Biopython
+
+Use requirements.txt for installing:
+```bash
+pip install -r requirements.txt
+```
 
 # Usage
 
