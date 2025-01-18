@@ -66,13 +66,13 @@ python analyze.py sequence.fasta --duplicate
 *Locate a specific codon (ATG) with context:
 
 ```bash
-python analyze.py sequence.fasta --FindtheCodon ATG
+python analyze.py Gliomedin_Homo_sapiens.txt --FindtheCodon ATG
 ```
 
 * Perform both analyses:
 
 ```bash
-python analyze.py sequence.fasta --duplicate --FindtheCodon ATG
+python analyze.py Gliomedin_Homo_sapiens.txt --duplicate --FindtheCodon ATG
 ```
 
 Contributions are welcome! Please submit a pull request or open an issue for any bugs or feature requests.
