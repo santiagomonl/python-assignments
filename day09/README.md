@@ -32,6 +32,8 @@ The tool requires Python 3.7 or higher and the following packages:
 
 * re
 
+See requirements.txt for details.
+
 # Usage
 
 ## Run the program with the desired options:
