@@ -60,7 +60,7 @@ python analyze.py FILE [--duplicate] [--FindtheCodon CODON]
 * Find the longest repeated subsequence:
 
 ```bash
-python analyze.py sequence.fasta --duplicate
+python analyze.py Gliomedin_Homo_sapiens.txt --duplicate
 ```
 
 *Locate a specific codon (ATG) with context:
