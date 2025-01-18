@@ -1,15 +1,14 @@
 import argparse
 import re
+from Bio import SeqIO
 
 def read_fasta_or_genbank(file_path):
-    with open(file_path, 'r') as file:
-        sequence = []
-        for line in file:
-            if not line.startswith('>') and not line.startswith('LOCUS') and not line.startswith('ORIGIN'):
-                sequence.append(line.strip())
-        return ''.join(sequence)
+    with open(file_path, "r") as file:
+        for record in SeqIO.parse(file, "fasta") or SeqIO.parse(file, "genbank"):
+            return str(record.seq)  # Extract sequence as a string
+    return ""
 
-def find_longest_repeated_subsequence_optimized(sequence, k): # k is the k-mer size
+def find_longest_repeated_subsequence_optimized(sequence, k):
     kmers = {}
     longest_repeat = ""
 
@@ -17,7 +16,7 @@ def find_longest_repeated_subsequence_optimized(sequence, k): # k is the k-mer s
         kmer = sequence[i:i + k]
         if kmer in kmers:
             if len(kmer) > len(longest_repeat):
-                longest_repeat = kmer  # Or handle multiple occurrences
+                longest_repeat = kmer
         else:
             kmers[kmer] = i
 
@@ -43,10 +42,14 @@ def main():
     args = parser.parse_args()
     sequence = read_fasta_or_genbank(args.file)
 
-    if args.duplicate:
-        longest_subsequence = find_longest_repeated_subsequence_optimized(sequence, k=10)  # Specify a k-mer size here
-        print(f"Longest repeated subsequence: {longest_subsequence}")
+    if not sequence:
+        print("Error: Could not read a valid sequence from the file.")
+        return
 
+    if args.duplicate:
+        k = 10  # Specify a k-mer size here
+        longest_subsequence = find_longest_repeated_subsequence_optimized(sequence, k)
+        print(f"Longest repeated subsequence (k={k}): {longest_subsequence}")
 
     if args.FindtheCodon:
         codon_results = find_codon_with_context(sequence, args.FindtheCodon)
