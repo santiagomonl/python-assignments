@@ -2,7 +2,6 @@ import argparse
 import re
 
 def read_fasta_or_genbank(file_path):
-    """Reads a FASTA or GeneBank file and returns the sequence as a string."""
     with open(file_path, 'r') as file:
         sequence = []
         for line in file:
@@ -11,7 +10,6 @@ def read_fasta_or_genbank(file_path):
         return ''.join(sequence)
 
 def find_longest_repeated_subsequence_optimized(sequence, k): # k is the k-mer size
-    """Finds the longest subsequence that repeats itself in the sequence."""
     kmers = {}
     longest_repeat = ""
 
@@ -26,7 +24,6 @@ def find_longest_repeated_subsequence_optimized(sequence, k): # k is the k-mer s
     return longest_repeat
 
 def find_codon_with_context(sequence, codon, context=5):
-    """Finds all occurrences of a codon and prints the codon with upstream and downstream context."""
     matches = [(m.start(), m.end()) for m in re.finditer(codon, sequence)]
     results = []
 
